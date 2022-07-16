@@ -1,0 +1,44 @@
+/*
+ * Complete the 'countApplesAndOranges' function below.
+ *
+ * The function accepts following parameters:
+ *  1. INTEGER s
+ *  2. INTEGER t
+ *  3. INTEGER a
+ *  4. INTEGER b
+ *  5. INTEGER_ARRAY apples
+ *  6. INTEGER_ARRAY oranges
+ */
+//first normal soln with no  heigher functions
+/*function countApplesAndOranges(s, t, a, b, apples, oranges) {
+  // Write your code here
+  let appNumbers = [];
+  let oranNumbers = [];
+  let small = Math.min(s, t);
+  let big = Math.max(s, t);
+  for (let i = 0; i < apples.length; i++) {
+    apples[i] = a + apples[i];
+    if (apples[i] >= small && apples[i] <= big) {
+      appNumbers.push(apples[i]);
+    }
+  }
+  for (let j = 0; j < oranges.length; j++) {
+    oranges[j] = b + oranges[j];
+    if (oranges[j] >= small && oranges[j] <= big) {
+      oranNumbers.push(oranges[j]);
+    }
+  }
+  console.log(appNumbers.length);
+  console.log(oranNumbers.length);
+}
+*/
+let apples1 = [-2, 2, 1];
+let oranges1 = [5, -6];
+//2nd soln with map-function
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+  const appNumbers = apples.map(num => num + a).filter(num => num >= s && num <= t).length;
+  const oraNumbers = oranges.map(num => num + b).filter(num => num >= s && num <= t).length;
+  console.log(appNumbers);
+  console.log(oraNumbers);
+}
+countApplesAndOranges(7, 11, 5, 15, apples1, oranges1)
